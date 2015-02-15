@@ -78,7 +78,6 @@ var myPage = {
     $('#board').on("click", "button", function (event) {
       event.preventDefault();
 
-
       myPage.prince.attack (myPage.dragon, myPage.princess);
       $(".status").text(myPage.dragon.name + " has " + myPage.dragon.life + " lives left.");
 
