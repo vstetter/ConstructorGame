@@ -1,17 +1,36 @@
 
 
-// knight constructor
+// prince constructor
 
 function Prince(spec) {
   var spec = spec || {};
   this.name = spec.name || "Prince Phillip";
-  this.life = 100;
+  this.life = 3;
+  $("#livesPrinceRem").text(this.life);
   this.attack = function (dragon, princess) {
     var hits = Math.floor(Math.random() * 20);
-
-    $(".logs").text("pew pew");
+    $(".logs").text("");
+    $("#ammo").text("");
+    $("#ammo").text(">>pow pow>>");
+    // $("#attackButton").append("<span id='ammo'>pew pew</span>");
+    // $(".logs").text("pew pew");
     dragon.damage(hits);
     princess.damage(hits);
+    this.damage(hits);
+  }
+  this.damage = function (hits) {
+    if (this.life > 0) {
+      if (hits % 6 === 0) {
+        this.life = this.life - 1;
+        $(".logs").append("<h3>" + this.name + " was scorched by the dragon's breath - he loses one life!</h3>");
+        $("#livesPrinceRem").text(this.life);
+      } else {
+        this.life = this.life;
+      }
+    } else {
+      $(".logs").text("");
+      $(".logs").append("<h3>The dragon killed "+ this.name + ", you lose!!!</h3>");
+    }
   }
 }
 
@@ -20,18 +39,21 @@ function Prince(spec) {
 function Princess() {
   this.name = "Princess Aurora";
   this.life = 3;
+  $("#livesPrincessRem").text(this.life);
   this.damage = function (hits) {
 
     if (this.life > 0) {
       if (hits % 5 === 0) {
         this.life = this.life - 1;
-        $(".logs").append("<h3>Oh no, "+ this.name + " was hit, too! But she's still alive...</h3>");
+        $(".logs").append("<h3>Oh no, "+ this.name + " was hit, too! She loses a life...</h3>");
+        $("#livesPrincessRem").text(this.life);
+
       } else {
         this.life = this.life;
       }
     } else {
       $(".logs").text("");
-      $(".logs").append("<h3>The princess has died, you lose!!!</h3>");
+      $(".logs").append("<h3>" + this.name + " has died, you lose!!!</h3>");
     }
   }
 }
@@ -41,10 +63,12 @@ function Princess() {
 function Dragon() {
   this.name = "Dragula";
   this.life = 100;
+  $("#livesDragonRem").text(this.life);
   this.damage = function (hits) {
     if(this.life > 0) {
       this.life = this.life - hits;
       $(".logs").append("<h3>" + this.name + " was hit!!</h3>");
+      $("#livesDragonRem").text(this.life);
     } else {
       $(".logs").append("<h3>" + this.name + " has died, you win!!!!!</h3>");
     }
@@ -79,13 +103,14 @@ var myPage = {
       event.preventDefault();
 
       myPage.prince.attack (myPage.dragon, myPage.princess);
-      $(".status").text(myPage.dragon.name + " has " + myPage.dragon.life + " lives left.");
+      $(".status").hide();
+      $(".livesDragonRem").text(myPage.dragon.life);
 
     });
   },
 
   renderBoard: function () {
-    $('#board').append("<button>Attack</button>");
+    $('#board').append("<div id='attackButton'><button>Attack</button><span id='ammo'></span></div>");
 
   }
 

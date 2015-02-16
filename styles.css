@@ -3,6 +3,11 @@ body {
   background-color: #423c3b;
   font-family: garamond;
 }
+
+header {
+  min-height: 170px;
+}
+
 h1 {
   font-size: 1.75em;
   color: white;
@@ -49,13 +54,58 @@ h1 {
   background-size: 100%;
 }
 
+.lives {
+  padding-top: 20px;
+  font-size: 1.25em;
+}
+
+.livesPrince, .livesDragon, .livesPrincess {
+  width: 30%;
+  float: left;
+  margin: 0.5%;
+  text-align: center;
+  color: white;
+}
+
+#livesDragonRem {
+  padding: 2em;
+  font-size: 1em;
+  background: url("8549-256x256x32.png") no-repeat center;
+  background-size: 60%;
+}
+
+#livesPrinceRem{
+  padding: 2em;
+  font-size: 1em;
+  background: url("8498-256x256x32.png") no-repeat center;
+  background-size: 60%;
+}
+
+#livesPrincessRem{
+  padding: 2em;
+  font-size: 1em;
+  background: url("8495-256x256x32.png") no-repeat center;
+  background-size: 60%;
+}
+
+#attackButton {
+  display: block;
+  position: absolute;
+  margin-left: 8em;
+  margin-top: 8em;
+}
+
 #board button {
   font-size: 1em;
   padding: 0.4em;
-  display: block;
   width: 5em;
-  margin-left: 10em;
-  margin-top: 0;
   background-color: #c2003c;
   border-color: #cc1a4f;
+}
+
+#ammo {
+  color: white;
+  font-size: 1em;
+  padding-left: 2em;
+
 }
