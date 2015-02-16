@@ -11,7 +11,7 @@ function Prince(spec) {
     var hits = Math.floor(Math.random() * 20);
     $(".logs").text("");
     $("#ammo").text("");
-    $("#ammo").text(">>pow pow>>");
+    $("#ammo").text(">> pow pow >>");
     // $("#attackButton").append("<span id='ammo'>pew pew</span>");
     // $(".logs").text("pew pew");
     dragon.damage(hits);
@@ -53,7 +53,7 @@ function Princess() {
       }
     } else {
       $(".logs").text("");
-      $(".logs").append("<h3>" + this.name + " has died, you lose!!!</h3>");
+      $(".logs").append("<h3>" + this.name + " has died, you lose!!! What kind of a prince are you?</h3>");
     }
   }
 }

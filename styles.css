@@ -1,7 +1,10 @@
 
 body {
-  background-color: #423c3b;
-  font-family: garamond;
+  background: url("texture-7-dark.jpg") no-repeat center;
+
+/*   background-color: #423c3b; */
+  font-family: 'Amarante', cursive;
+/*   font-family: garamond; */
 }
 
 header {
@@ -23,6 +26,7 @@ h1 {
 }
 
 #createGame {
+  font-family: garamond;
   font-size: 1em;
   display: block;
   margin: 0.2em auto;
@@ -37,6 +41,8 @@ h1 {
 }
 
 #createGame button {
+
+  font-family: 'Amarante', cursive;
   font-size: 1em;
   padding: 0.2em;
   background-color: #410952;
@@ -96,6 +102,7 @@ h1 {
 }
 
 #board button {
+  font-family: 'Amarante', cursive;
   font-size: 1em;
   padding: 0.4em;
   width: 5em;
@@ -105,6 +112,7 @@ h1 {
 
 #ammo {
   color: white;
+  font-family: 'Amarante', cursive;
   font-size: 1em;
   padding-left: 2em;
 
